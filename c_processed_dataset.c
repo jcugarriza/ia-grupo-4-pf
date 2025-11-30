@@ -177,7 +177,7 @@ void train_logistic(
             w[j] -= lr * grad[j] / (double)n_samples;
         }
 
-        // (Opcional) Imprimir pérdida aproximada cada cierto número de épocas
+        // Imprimir pérdida aproximada cada cierto número de épocas
         if ((e + 1) % 100 == 0) {
             double loss = 0.0;
             for (int i = 0; i < n_samples; i++) {
@@ -264,3 +264,4 @@ int main(void) {
 
     return 0;
 }
+
