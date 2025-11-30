@@ -194,7 +194,7 @@ void train_logistic(
     free(grad);
 }
 
-// Calcula accuracy sobre un dataset
+// Calcula accuracy sobre dataset
 double accuracy(double **X, double *y, int n_samples, double *w) {
     int correct = 0;
     for (int i = 0; i < n_samples; i++) {
@@ -206,10 +206,9 @@ double accuracy(double **X, double *y, int n_samples, double *w) {
     return (double)correct / (double)n_samples;
 }
 
-// ------------------- Programa principal -------------------
 
 int main(void) {
-    // Archivos generados por tu script de preprocesamiento en Python
+    // Archivos generados por las celdas de preprocesamiento en Python
     const char *X_train_file = "X_train_pca.csv";
     const char *X_test_file  = "X_test_pca.csv";
     const char *y_train_file = "y_train.csv";
@@ -217,11 +216,11 @@ int main(void) {
 
     int n_train, n_test;
 
-    // 1) Cargar matrices de características PCA
+    // Cargar matrices de características PCA
     double **X_train = load_matrix(X_train_file, &n_train);
     double **X_test  = load_matrix(X_test_file, &n_test);
 
-    // 2) Cargar vectores de etiquetas
+    // Cargar vectores de etiquetas
     double *y_train = load_vector(y_train_file, n_train);
     double *y_test  = load_vector(y_test_file, n_test);
 
@@ -230,7 +229,7 @@ int main(void) {
     printf("Muestras de prueba: %d, características (PCA): %d\n",
            n_test, N_FEATURES);
 
-    // 3) Entrenar modelo de regresión logística
+    // Entrenar modelo de regresión logística
     double *w = (double *)malloc(N_FEATURES * sizeof(double));
     if (!w) {
         fprintf(stderr, "Error de memoria para pesos\n");
@@ -240,14 +239,14 @@ int main(void) {
     printf("Entrenando modelo...\n");
     train_logistic(X_train, y_train, n_train, w, LEARNING_RATE, EPOCHS);
 
-    // 4) Evaluar en train y test
+    // Evaluar en train y test
     double acc_train = accuracy(X_train, y_train, n_train, w);
     double acc_test  = accuracy(X_test, y_test, n_test, w);
 
     printf("Accuracy en entrenamiento: %.4f\n", acc_train);
     printf("Accuracy en prueba:       %.4f\n", acc_test);
 
-    // 5) Ejemplo de predicción para la primera muestra de test
+    // Ejemplo de predicción para la primera muestra de test
     int pred0 = predict_class(X_test[0], w);
     double p0 = predict_proba(X_test[0], w);
     printf("Ejemplo: primera muestra de test -> y_real = %d, y_pred = %d, p_yes = %.4f\n",
@@ -264,4 +263,5 @@ int main(void) {
 
     return 0;
 }
+
 
