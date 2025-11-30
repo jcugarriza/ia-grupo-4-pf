@@ -3,7 +3,7 @@ Trabajo final para la asignatura de Inteligencia Artificial en la Universidad de
 
 En este repositorio se encuentran:
 - El notebook de python en el que se explica cada paso del trabajo: https://colab.research.google.com/drive/1B-n-3mUA9r66iVQtzRwzVRHqccvhd8Qr?usp=sharing
-- El algoritmo en C y su diagrama
+- El algoritmo en C y su pseudocódigo (punto 22)
 - Un archivo en CSV con los datos preprocesados para ser usados en el algoritmo en C
 
 
